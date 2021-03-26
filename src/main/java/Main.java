@@ -16,7 +16,7 @@ public class Main {
             Reader lectorDeArchivo = new FileReader(nombreDelArchivo+".csv");
 
             Iterable<CSVRecord> registros = CSVFormat.DEFAULT
-                    .withHeader(creadorCsv.Encabezados)
+                    .withHeader(creadorCsv.ENCABEZADOS)
                     .withFirstRecordAsHeader()
                     .parse(lectorDeArchivo);
 

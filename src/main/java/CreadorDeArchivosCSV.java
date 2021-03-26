@@ -11,13 +11,13 @@ import java.util.Map;
  *
  */
 public class CreadorDeArchivosCSV {
-    public final Map<String, String> NombresDePersonas = new HashMap<String, String>(){
+    public final Map<String, String> NOMBRES_DE_PERSONAS = new HashMap<String, String>(){
         {
             put("De Jesus", "Marco");
             put("Rodriguez", "Luis");
         }
     };
-    public final String Encabezados[] = {"Apellido Paterno", "Nombre"};
+    public final String ENCABEZADOS[] = {"Apellido Paterno", "Nombre"};
 
     /**
      * Un metodo que nos ayuda a crear un Archivo en formato CSV,
@@ -33,12 +33,12 @@ public class CreadorDeArchivosCSV {
      */
     public boolean crearArchivoCsv(String nombreDelArchivo) throws IOException{
         var escritorDeArchivo = new FileWriter(nombreDelArchivo + ".csv");
-        var formatoConEncabezados = CSVFormat.DEFAULT.withHeader(Encabezados);
+        var formatoConEncabezados = CSVFormat.DEFAULT.withHeader(ENCABEZADOS);
 
         var impresoraCsv = new CSVPrinter(escritorDeArchivo, formatoConEncabezados);
 
         try {
-            NombresDePersonas.forEach((apellidoPaterno, nombre) -> {
+            NOMBRES_DE_PERSONAS.forEach((apellidoPaterno, nombre) -> {
                 try {
                     impresoraCsv.printRecord(apellidoPaterno, nombre);
                 } catch (IOException e) {
